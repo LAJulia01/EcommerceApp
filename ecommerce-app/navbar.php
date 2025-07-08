@@ -50,12 +50,22 @@
         .navbar-toggler {
             border: none;
         }
+        
+        .logout-link {
+            color: #dc3545 !important;
+            font-weight: 500;
+        }
+
+        .logout-link:hover {
+            color: #b52a2a !important;
+        }
+
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="index.php">ECOMMERCE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +87,7 @@
           <a class="nav-link" href="order_history.php">History</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" href="logout.php">Logout</a>
+          <a class="nav-link logout-link" href="logout.php">Logout</a>
         </li>
       </ul>
     </div>
@@ -91,7 +101,7 @@
 <!-- Auto-refresh cart count using AJAX -->
 <script>
 function fetchCartCount() {
-  $.get('cart_count.php', function(count) {
+  $.get('cartcount.php', function(count) {
     $('#cart-count').text(count);
   });
 }

@@ -4,24 +4,9 @@ function addToCart(productId) {
     $.get('cartcount.php', function(count) {
       $('#cart-count').text(count);
     });
-
-    // ✅ Show toast notification
-    const toast = $('<div></div>')
-      .text(response)
-      .css({
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        background: '#007bff',
-        color: '#fff',
-        padding: '10px 15px',
-        borderRadius: '5px',
-        zIndex: 9999,
-        boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-        fontSize: '14px'
-      });
-
-    $('body').append(toast);
-    setTimeout(() => toast.fadeOut(400, () => toast.remove()), 2000);
+    // Set modal message and show it
+    $('#cartModalMessage').text(response);
+    const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+    modal.show();
   });
 }
