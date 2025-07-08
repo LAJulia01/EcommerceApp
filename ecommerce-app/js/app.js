@@ -1,12 +1,6 @@
 function addToCart(productId) {
   $.post('add_to_cart.php', { product_id: productId }, function(response) {
-    
-    // ✅ Fetch updated count from server
-    $.get('cart_count.php', function(count) {
-      $('#cart-count').text(count);
-    });
-
-    // ✅ Show toast
+    // ✅ Show toast notification
     const toast = $('<div></div>')
       .text(response)
       .css({
@@ -24,5 +18,10 @@ function addToCart(productId) {
 
     $('body').append(toast);
     setTimeout(() => toast.fadeOut(400, () => toast.remove()), 2000);
+
+    // ✅ Refresh cart count via AJAX
+    $.get('cartcount.php', function(count) {
+      $('#cart-count').text(count);
+    });
   });
 }
