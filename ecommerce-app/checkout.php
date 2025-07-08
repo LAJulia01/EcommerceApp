@@ -6,8 +6,21 @@ include 'navbar.php';
 $user_id = $_SESSION['user_id'] ?? null;
 $cart = $_SESSION['cart'] ?? [];
 
-if (!$user_id || empty($cart)) {
-    echo "<div style='padding: 40px; font-family: Arial; text-align: center; color: #dc3545; font-size: 18px;'>You must be logged in and have items in your cart to checkout.</div>";
+if (!$user_id) {
+    echo '
+    <div style="padding: 60px; font-family: Arial, sans-serif; text-align: center;">
+        <h2 style="color: #dc3545;">You must be logged in to checkout.</h2>
+        <a href="login.php" style="
+            display: inline-block;
+            margin-top: 20px;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        ">Login to Continue</a>
+    </div>';
     exit;
 }
 
