@@ -100,11 +100,11 @@ $cart = $_SESSION['cart'] ?? [];
         ?>
             <div class="cart-item">
                 <div><?= htmlspecialchars($row['name']) ?> x <?= $qty ?></div>
-                <div>$<?= number_format($subtotal, 2) ?></div>
+                <div>₱<?= number_format($subtotal, 2) ?></div>
             </div>
         <?php endif; endforeach; ?>
 
-        <div class="total">Total: $<?= number_format($total, 2) ?></div>
+        <div class="total">Total: ₱<?= number_format($total, 2) ?></div>
 
         <div class="actions">
             <form method="post" action="checkout.php" style="display:inline;">

@@ -107,5 +107,18 @@ $result = $conn->query("SELECT * FROM products");
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/app.js"></script>
 
+<!-- Auto-refresh cart count using AJAX -->
+<script>
+function fetchCartCount() {
+  $.get('cart_count.php', function(count) {
+    $('#cart-count').text(count);
+  });
+}
+
+// Fetch immediately, then every 3 seconds
+fetchCartCount();
+setInterval(fetchCartCount, 3000);
+</script>
+
 </body>
 </html>
