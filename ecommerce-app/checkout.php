@@ -1,7 +1,6 @@
 <?php
 include 'db.php';
 include 'session.php';
-include 'navbar.php';
 
 $user_id = $_SESSION['user_id'] ?? null;
 $cart = $_SESSION['cart'] ?? [];
@@ -42,8 +41,10 @@ unset($_SESSION['cart']);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Checkout - ECOMMERCE</title>
     <style>
         body {
@@ -79,6 +80,8 @@ unset($_SESSION['cart']);
     </style>
 </head>
 <body>
+
+<?php include 'navbar.php'; ?>
 
 <div class="container">
     <h2>✅ Order Successfully Placed!</h2>

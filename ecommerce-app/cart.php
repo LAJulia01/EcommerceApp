@@ -7,8 +7,10 @@ $cart = $_SESSION['cart'] ?? [];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Your Cart - ECOMMERCE-APP</title>
     <style>
         body {
@@ -80,6 +82,7 @@ $cart = $_SESSION['cart'] ?? [];
             font-size: 18px;
             color: #666;
         }
+
     </style>
 </head>
 <body>
@@ -116,6 +119,18 @@ $cart = $_SESSION['cart'] ?? [];
         </div>
     <?php endif; ?>
 </div>
+
+<script>
+function fetchCartCount() {
+  $.get('cartcount.php', function(count) {
+    $('#cart-count').text(count);
+  });
+}
+
+fetchCartCount();
+setInterval(fetchCartCount, 3000);
+</script>
+
 
 </body>
 </html>

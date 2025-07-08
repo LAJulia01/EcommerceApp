@@ -1,71 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ECOMMERCE NAVBAR</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            padding: 12px 24px;
-        }
+<?php
+// navbar.php - Fixed version without HTML structure conflicts
+?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        padding: 12px 24px;
+    }
 
-        .navbar-brand {
-            font-size: 22px;
-            font-weight: bold;
-            color: #007bff !important;
-        }
+    .navbar .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
 
-        .nav-link {
-            color: #555 !important;
-            margin-right: 20px;
-            font-size: 15px;
-            transition: color 0.2s;
-            position: relative;
-        }
+    .navbar-brand {
+        font-size: 22px;
+        font-weight: bold;
+        color: #007bff !important;
+    }
 
-        .nav-link:hover {
-            color: #0056b3 !important;
-        }
+    .nav-link {
+        color: #555 !important;
+        margin-right: 20px;
+        font-size: 15px;
+        transition: color 0.2s;
+        position: relative;
+    }
 
-        .nav-link.active {
-            font-weight: bold;
-            color: #007bff !important;
-        }
+    .nav-link:hover {
+        color: #0056b3 !important;
+    }
 
-        #cart-count {
-            background: #dc3545;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 50%;
-            font-size: 12px;
-            position: absolute;
-            top: -6px;
-            right: -10px;
-        }
+    .nav-link.active {
+        font-weight: bold;
+        color: #007bff !important;
+    }
 
-        .navbar-toggler {
-            border: none;
-        }
-        
-        .logout-link {
-            color: #dc3545 !important;
-            font-weight: 500;
-        }
+    #cart-count {
+        background: #dc3545;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 50%;
+        font-size: 12px;
+        position: absolute;
+        top: -6px;
+        right: -10px;
+    }
 
-        .logout-link:hover {
-            color: #b52a2a !important;
-        }
+    .navbar-toggler {
+        border: none;
+    }
+    
+    .logout-link {
+        color: #dc3545 !important;
+        font-weight: 500;
+    }
 
-    </style>
-</head>
-<body>
+    .logout-link:hover {
+        color: #b52a2a !important;
+    }
+</style>
+
+
 
 <nav class="navbar navbar-expand-lg">
-  <div class="container">
+  <div class="w-100 px-4 d-flex justify-content-between align-items-center">
     <a class="navbar-brand" href="index.php">ECOMMERCE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,16 +77,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">Products</a>
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>" href="index.php">Products</a>
         </li>
         <li class="nav-item position-relative">
-          <a class="nav-link" href="cart.php">
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'cart.php' ? 'active' : '' ?>" href="cart.php">
             Cart
             <span id="cart-count"><?= array_sum($_SESSION['cart'] ?? []) ?></span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="order_history.php">History</a>
+          <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'order_history.php' ? 'active' : '' ?>" href="order_history.php">History</a>
         </li>
         <li class="nav-item">
           <a class="nav-link logout-link" href="logout.php">Logout</a>
@@ -110,6 +112,3 @@ function fetchCartCount() {
 fetchCartCount();
 setInterval(fetchCartCount, 3000);
 </script>
-
-</body>
-</html>

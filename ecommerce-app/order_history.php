@@ -8,8 +8,10 @@ $res = $conn->query("SELECT * FROM orders WHERE user_id = $user_id");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order History - ECOMMERCE-APP</title>
     <style>
         body {
@@ -57,9 +59,12 @@ $res = $conn->query("SELECT * FROM orders WHERE user_id = $user_id");
             font-size: 18px;
             padding: 40px;
         }
+
+        
     </style>
 </head>
 <body>
+
 
 <div class="container">
     <h2>Order History</h2>
@@ -89,6 +94,18 @@ $res = $conn->query("SELECT * FROM orders WHERE user_id = $user_id");
     ?>
 
 </div>
+
+<script>
+function fetchCartCount() {
+  $.get('cartcount.php', function(count) {
+    $('#cart-count').text(count);
+  });
+}
+
+fetchCartCount();
+setInterval(fetchCartCount, 3000);
+</script>
+
 
 </body>
 </html>
