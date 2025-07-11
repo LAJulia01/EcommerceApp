@@ -23,17 +23,8 @@ $result = $conn->query("SELECT * FROM products");
             background: #f7f7f7;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding-top: 80px; /* give breathing space */
         }
 
-        /* Ensure navbar container matches other pages */
-        .navbar .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Main content container */
         .main-container {
             max-width: 960px;
             margin: 40px auto;
@@ -88,7 +79,6 @@ $result = $conn->query("SELECT * FROM products");
             background: #0056b3;
         }
 
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -156,16 +146,10 @@ $result = $conn->query("SELECT * FROM products");
         .close:hover {
             color: black;
         }
-        @media (max-width: 576px) {
-            .product-list {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
 
-<!-- Page Content -->
 <div class="main-container">
     <h2>Product List</h2>
     
@@ -180,7 +164,7 @@ $result = $conn->query("SELECT * FROM products");
     </div>
 </div>
 
-<!-- Modal Notification -->
+
 <div id="cartModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -198,12 +182,12 @@ $result = $conn->query("SELECT * FROM products");
 <script>
 function addToCart(productId) {
     $.post('add_to_cart.php', { product_id: productId }, function(response) {
-        // Refresh cart count
+
         $.get('cartcount.php', function(count) {
             $('#cart-count').text(count);
         });
 
-        // Show modal with response message
+
         $('#cartModalMessage').text(response);
         $('#cartModal').show();
     });
@@ -213,7 +197,7 @@ function closeModal() {
     $('#cartModal').hide();
 }
 
-// Close modal when clicking outside of it
+
 $(document).ready(function() {
     $(window).click(function(event) {
         if (event.target.id === 'cartModal') {
@@ -222,12 +206,12 @@ $(document).ready(function() {
     });
 });
 
-// Auto-refresh cart count every 10 seconds
+
 setInterval(() => {
     $.get('cartcount.php', function(count) {
         $('#cart-count').text(count);
     });
-}, 10000);
+}, 7000);
 </script>
 
 </body>

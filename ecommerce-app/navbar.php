@@ -1,6 +1,3 @@
-<?php
-// navbar.php - Fixed version without HTML structure conflicts
-?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
     
@@ -8,12 +5,6 @@
         background-color: #ffffff;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         padding: 12px 24px;
-    }
-
-    .navbar .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 20px;
     }
 
     .navbar-brand {
@@ -67,7 +58,7 @@
 
 
 <nav class="navbar navbar-expand-lg">
-  <div class="w-100 px-4 d-flex justify-content-between align-items-center">
+  <div class="container-fluid d-flex justify-content-between align-items-center px-4">
     <a class="navbar-brand" href="index.php">ECOMMERCE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,11 +87,11 @@
   </div>
 </nav>
 
-<!-- JS CDNs -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Auto-refresh cart count using AJAX -->
+
 <script>
 function fetchCartCount() {
   $.get('cartcount.php', function(count) {
@@ -108,7 +99,7 @@ function fetchCartCount() {
   });
 }
 
-// Fetch immediately, then every 3 seconds
+
 fetchCartCount();
 setInterval(fetchCartCount, 3000);
 </script>

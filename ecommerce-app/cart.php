@@ -17,7 +17,6 @@ $cart = $_SESSION['cart'] ?? [];
             background: #f7f7f7;
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
         }
 
         .container {
