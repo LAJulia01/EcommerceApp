@@ -59,7 +59,7 @@
 
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid d-flex justify-content-between align-items-center px-4">
-    <a class="navbar-brand" href="index.php">ECOMMERCE</a>
+    <a class="navbar-brand" href="index.php">TECH REPAIR</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

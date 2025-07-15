@@ -27,7 +27,7 @@ CREATE TABLE order_items (
 );
 
 INSERT INTO products (name, price) VALUES
-('Product A', 10.00),
-('Product B', 20.00),
-('Product C', 30.00),
-('Product D', 40.00);
+('Product Repair', 500.00),
+('Product Reformat', 500.00),
+('Product Update', 300.00),
+('Product Upgrade', 400.00);
